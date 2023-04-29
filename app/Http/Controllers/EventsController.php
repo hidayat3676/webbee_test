@@ -180,7 +180,7 @@ class EventsController extends BaseController
 
     public function getFutureEventsWithWorkshops()
     {
-        return Event::whereHas('workshops', function ($q) {
+        return Event::with('workshops')->whereHas('workshops', function ($q) {
             $q->where('start', '>', now());
         })->get();
     }

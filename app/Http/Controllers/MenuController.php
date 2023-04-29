@@ -93,7 +93,6 @@ class MenuController extends BaseController
      */
 
     public function getMenuItems() {
-        dd(MenuItem::with('children')->get()->toJson());
-        return MenuItem::with('children')->get();
+        return MenuItem::with('children')->first();
     }
 }
